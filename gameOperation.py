@@ -26,6 +26,7 @@
 """
 import random
 import playerMove
+import approxQLearning
 
 def flipCoin( p ):
     r = random.random()
@@ -243,40 +244,3 @@ def isGameOver(gameMatrix,numRow,numCol):
     
     return True
 
-"""
-    Running Game
-"""
-gameMatrix = [[0 for row in range(4)] for col in range(4)]
-
-#game starts with 2 random cells having val 2
-fillNextCell(gameMatrix,1)
-fillNextCell(gameMatrix,1)
-
-print("first fills")
-printCurrGame(gameMatrix,4,4)
-
-
-moveType = "randomMove"
-
-playerScore = 0
-moveCount = 0
-gameIsOver = False
-
-nextMove = playerMove.nextMove(moveType)
-print("going",nextMove)
-playerScore = matrixUpdate(gameMatrix,nextMove,playerScore,4,4)
-
-while not gameIsOver:
-
-    fillNextCell(gameMatrix,0.75)
-    moveCount+=1
-
-    printCurrGame(gameMatrix,4,4)
-    print("score=",playerScore,"move #", moveCount)
-    print()
-
-    nextMove = playerMove.nextMove(moveType)
-    print("going",nextMove)
-    playerScore = matrixUpdate(gameMatrix,nextMove,playerScore,4,4)
-
-    gameIsOver = isGameOver(gameMatrix,4,4)
