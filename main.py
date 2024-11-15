@@ -12,7 +12,7 @@ import approxQLearning
 import playerMove
 import util
 
-weights = [1,1,1,1,1]
+weights = util.Counter()
 discount = 3
 alpha = 0.5
 
