@@ -7,7 +7,11 @@ RandomMove: picks random move of left, right, up, and down
 """
 import random 
 import approxQLearning
+import treeLearning
 
+def flipCoin( p ):
+    r = random.random()
+    return r < p
 
 def makeRandomMove():
     moves = ["up","down","left","right"]
@@ -15,11 +19,11 @@ def makeRandomMove():
     return [randomMove]
 
 
-def nextMove(typeOfAgent, gameMatrix, gameScore, weights,moveCount):
+def nextMove(typeOfAgent, gameMatrix, gameScore, weights,epsilon,depth):
     if typeOfAgent=="randomMove":
         return makeRandomMove()
     if typeOfAgent=="approxQLearning":
-        return approxQLearning.bestMove(gameMatrix,gameScore,weights,moveCount)
-    
+        return approxQLearning.getBest(gameMatrix, gameScore,epsilon,0,depth,weights)
+
     
     return "up"

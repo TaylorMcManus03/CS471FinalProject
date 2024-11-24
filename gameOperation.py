@@ -1,28 +1,5 @@
 """
-- Create 4x4 matrix
-- Pick two random points in the matrix:
-    - Generate 2's in those spots in th matrix
-- Each turn:
-    - nextMove = Call Player's move
-    - if left (moveLeft Funct - returns new matrix and score)
-        - test all cells with their partner to the left. if the cell to the left is same value then combine them
-    - if right (moveRight Funct)
-        - test all cells with their partner to the right. if the cell to the right is same value then combine them
-    - if up (moveUp Funct)
-        - test all cells with their partner above. if the cell above is same value then combine them
-    - if down (moveDown Funct)
-        - test all cells with their partner below. if the cell below is same value then combine them
-
-    ^^^Score counter: add the valu of combined cells to score
-
-    - Find all empty cells
-    - choose at random one of the empty cells
-    - flip a coin: populate chosen cell with 2 if heads, 4 if false
-
-    Tester if game is over:
-    - if all no empty cells (val 0): 
-        - are there any neighboring cells with the same value: NOT DONE
-        - else: GAME OVER, return GAME OVER and Score
+This file runs the basic functions of the game 2048
 """
 import random
 import playerMove
